@@ -365,7 +365,6 @@ class _SignUpPageState extends State<SignUpPage> {
               emailInput(),
               passwordInput(),
               // isLoading ? LoadingButton() : signUpButton(),
-              signUpButton(),
               Spacer(),
               footer(),
             ],
