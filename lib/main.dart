@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'theme.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,7 +24,9 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Text(
           'Hallo!',
-          style: GoogleFonts.poppins(fontSize: 50),
+          style: priceTextStyle.copyWith(
+            fontSize: 30,
+          ),
         ),
       ),
     );
