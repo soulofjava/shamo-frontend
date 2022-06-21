@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:provider/provider.dart';
 // import 'package:shamo/pages/home/chat_page.dart';
-// import 'package:shamo/pages/home/home_page.dart';
+import 'package:shamo/pages/home/home_page.dart';
 // import 'package:shamo/pages/home/profile_page.dart';
 // import 'package:shamo/pages/home/wishlist_page.dart';
 // import 'package:shamo/providers/page_provider.dart';
@@ -118,33 +118,34 @@ class _MainPageState extends State<MainPage> {
       );
     }
 
-    // Widget body() {
-    //   switch (pageProvider.currentIndex) {
-    //     case 0:
-    //       return HomePage();
-    //       break;
-    //     case 1:
-    //       return ChatPage();
-    //       break;
-    //     case 2:
-    //       return WishlistPage();
-    //       break;
-    //     case 3:
-    //       return ProfilePage();
-    //       break;
+    Widget body() {
+      //   switch (pageProvider.currentIndex) {
+      //     case 0:
+      //       return HomePage();
+      //       break;
+      //     case 1:
+      //       return ChatPage();
+      //       break;
+      //     case 2:
+      //       return WishlistPage();
+      //       break;
+      //     case 3:
+      //       return ProfilePage();
+      //       break;
 
-    //     default:
-    //       return HomePage();
-    //   }
-    // }
+      //     default:
+      return HomePage();
+      // }
+    }
 
     return Scaffold(
-      backgroundColor:
-          // pageProvider.currentIndex == 0 ? backgroundColor1 : backgroundColor3,
-      // floatingActionButton: cartButton(),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // bottomNavigationBar: customBottomNav(),
-      // body: body(),
+      backgroundColor: backgroundColor1,
+      // backgroundColor:
+      // pageProvider.currentIndex == 0 ? backgroundColor1 : backgroundColor3,
+      floatingActionButton: cartButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: customBottomNav(),
+      body: body(),
     );
   }
 }

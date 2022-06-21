@@ -187,7 +187,10 @@ class _SignInPageState extends State<SignInPage> {
         width: double.infinity,
         margin: EdgeInsets.only(top: 30),
         child: TextButton(
-          onPressed: handleSignIn,
+          // onPressed: handleSignIn,
+          onPressed: () {
+            Navigator.pushNamed(context, '/home');
+          },
           style: TextButton.styleFrom(
             backgroundColor: primaryColor,
             shape: RoundedRectangleBorder(
@@ -249,6 +252,7 @@ class _SignInPageState extends State<SignInPage> {
               emailInput(),
               passwordInput(),
               // isLoading ? LoadingButton() : signInButton(),
+              signInButton(),
               Spacer(),
               footer(),
             ],
