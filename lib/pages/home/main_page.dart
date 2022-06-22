@@ -3,6 +3,7 @@ import 'package:shamo/pages/home/chat_page.dart';
 // import 'package:provider/provider.dart';
 // import 'package:shamo/pages/home/chat_page.dart';
 import 'package:shamo/pages/home/home_page.dart';
+import 'package:shamo/pages/home/wishlist_page.dart';
 // import 'package:shamo/pages/home/profile_page.dart';
 // import 'package:shamo/pages/home/wishlist_page.dart';
 // import 'package:shamo/providers/page_provider.dart';
@@ -135,7 +136,7 @@ class _MainPageState extends State<MainPage> {
       //       break;
 
       //     default:
-      return ChatPage();
+      return WishlistPage();
       // }
     }
 
