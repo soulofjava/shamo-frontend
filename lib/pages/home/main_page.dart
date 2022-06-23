@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/pages/home/chat_page.dart';
-// import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
 // import 'package:shamo/pages/home/chat_page.dart';
 import 'package:shamo/pages/home/home_page.dart';
 import 'package:shamo/pages/home/profile_page.dart';

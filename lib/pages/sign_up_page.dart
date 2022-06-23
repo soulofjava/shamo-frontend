@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:provider/provider.dart';
-// import 'package:shamo/providers/auth_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:shamo/providers/auth_provider.dart';
 import 'package:shamo/theme.dart';
 // import 'package:shamo/widgets/loading_button.dart';
 
@@ -22,20 +22,17 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    // AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
     handleSignUp() async {
-      setState(() {
-        isLoading = true;
-      });
-
-      // if (await authProvider.register(
-      //   name: nameController.text,
-      //   username: usernameController.text,
-      //   email: emailController.text,
-      //   password: passwordController.text,
-      // )) {
-      //   Navigator.pushNamed(context, '/home');
+      if (await authProvider.register(
+        name: nameController.text,
+        username: usernameController.text,
+        email: emailController.text,
+        password: passwordController.text,
+      )) {
+        Navigator.pushNamed(context, '/home');
+      }
       // } else {
       //   ScaffoldMessenger.of(context).showSnackBar(
       //     SnackBar(
@@ -48,9 +45,9 @@ class _SignUpPageState extends State<SignUpPage> {
       //   );
       // }
 
-      setState(() {
-        isLoading = false;
-      });
+      // setState(() {
+      //   isLoading = false;
+      // });
     }
 
     Widget header() {
