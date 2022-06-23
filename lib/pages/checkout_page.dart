@@ -43,17 +43,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
       });
     }
 
-    // Widget header() {
-    //   return AppBar(
-    //     backgroundColor: backgroundColor1,
-    //     elevation: 0,
-    //     centerTitle: true,
-    //     title: Text(
-    //       'Checkout Details',
-    //     ),
-    //   );
-    // }
-
     Widget content() {
       return ListView(
         padding: EdgeInsets.symmetric(
@@ -304,7 +293,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     vertical: defaultMargin,
                   ),
                   child: TextButton(
-                    onPressed: handleCheckout,
+                    // onPressed: handleCheckout,
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, '/checkout-success', (route) => false);
+                    },
                     style: TextButton.styleFrom(
                       backgroundColor: primaryColor,
                       shape: RoundedRectangleBorder(
