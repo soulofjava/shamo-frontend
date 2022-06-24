@@ -15,7 +15,7 @@ class AuthService {
     String? password,
   }) async {
     // var url = '$baseUrl/register';
-    var url = Uri.https('$baseUrl/register', '');
+    var url = Uri.parse('$baseUrl/register');
     var headers = {
       'Content-Type': 'application/json',
     };
