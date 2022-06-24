@@ -35,7 +35,7 @@ class _SignInPageState extends State<SignInPage> {
           SnackBar(
             backgroundColor: alertColor,
             content: Text(
-              'Gagal Login!',
+              'Authentication Failed!',
               textAlign: TextAlign.center,
             ),
           ),

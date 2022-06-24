@@ -42,7 +42,7 @@ class _SignUpPageState extends State<SignUpPage> {
           SnackBar(
             backgroundColor: alertColor,
             content: Text(
-              'Gagal Register!',
+              'Register Failed!',
               textAlign: TextAlign.center,
             ),
           ),
