@@ -4,8 +4,6 @@ import 'package:shamo/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  // String baseUrl = 'https://shamo-backend.buildwithangga.id/api';
-  // String baseUrl = 'http://shamo-backend.test/api';
   String baseUrl = 'http://127.0.0.1:8000/api';
 
   Future<UserModel> register({
@@ -50,7 +48,7 @@ class AuthService {
     String? password,
   }) async {
     // var url = '$baseUrl/login';
-    var url = Uri.https(baseUrl, '/login');
+    var url = Uri.parse('$baseUrl/login');
     var headers = {'Content-Type': 'application/json'};
     var body = jsonEncode({
       'email': email,
