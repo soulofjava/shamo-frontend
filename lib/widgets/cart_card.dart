@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-// import 'package:provider/provider.dart';
-// import 'package:shamo/models/cart_model.dart';
-// import 'package:shamo/providers/cart_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:shamo/models/cart_model.dart';
+import 'package:shamo/providers/cart_provider.dart';
 import 'package:shamo/theme.dart';
 
 class CartCard extends StatelessWidget {
-  // final CartModel cart;
-  // CartCard(this.cart);
+  final CartModel cart;
+  CartCard(this.cart);
 
   @override
   Widget build(BuildContext context) {
-    // CartProvider cartProvider = Provider.of<CartProvider>(context);
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
 
     return Container(
       margin: EdgeInsets.only(
@@ -34,11 +34,10 @@ class CartCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
-                      image: AssetImage('assets/image_shoes.png')
-                      // NetworkImage(
-                      //   cart.product.galleries[0].url,
-                      // ),
-                      ),
+                    image: NetworkImage(
+                      '${cart.product?.galleries?[0].url}',
+                    ),
+                  ),
                 ),
               ),
               SizedBox(
@@ -49,13 +48,13 @@ class CartCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'cart.product.name',
+                      '${cart.product?.name}',
                       style: primaryTextStyle.copyWith(
                         fontWeight: semiBold,
                       ),
                     ),
                     Text(
-                      '\$${'cart.product.price'}',
+                      '\$${cart.product?.price}',
                       style: priceTextStyle,
                     ),
                   ],
@@ -65,7 +64,7 @@ class CartCard extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // cartProvider.addQuantity(cart.id);
+                      cartProvider.addQuantity(cart.id);
                     },
                     child: Image.asset(
                       'assets/button_add.png',
@@ -76,7 +75,7 @@ class CartCard extends StatelessWidget {
                     height: 2,
                   ),
                   Text(
-                    'cart.quantity.toString()',
+                    cart.quantity.toString(),
                     style: primaryTextStyle.copyWith(
                       fontWeight: medium,
                     ),
@@ -86,7 +85,7 @@ class CartCard extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      // cartProvider.reduceQuantity(cart.id);
+                      cartProvider.reduceQuantity(cart.id);
                     },
                     child: Image.asset(
                       'assets/button_min.png',
@@ -102,7 +101,7 @@ class CartCard extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              // cartProvider.removeCart(cart.id);
+              cartProvider.removeCart(cart.id);
             },
             child: Row(
               children: [
