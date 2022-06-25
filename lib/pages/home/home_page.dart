@@ -244,17 +244,11 @@ class HomePage extends StatelessWidget {
           top: 14,
         ),
         child: Column(
-          children: [
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-          ],
-          // children: productProvider.products
-          //     .map(
-          //       (product) => ProductTile(product),
-          //     )
-          //     .toList(),
+          children: productProvider.products
+              .map(
+                (product) => ProductTile(product),
+              )
+              .toList(),
         ),
       );
     }
