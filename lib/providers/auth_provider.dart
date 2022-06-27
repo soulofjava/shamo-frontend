@@ -1,9 +1,10 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:shamo/models/user_model.dart';
 import 'package:shamo/services/auth_service.dart';
 
 class AuthProvider with ChangeNotifier {
-  late UserModel _user;
+  UserModel _user;
 
   UserModel get user => _user;
 
@@ -13,10 +14,10 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<bool> register({
-    String? name,
-    String? username,
-    String? email,
-    String? password,
+    String name,
+    String username,
+    String email,
+    String password,
   }) async {
     try {
       UserModel user = await AuthService().register(
@@ -35,8 +36,8 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<bool> login({
-    String? email,
-    String? password,
+    String email,
+    String password,
   }) async {
     try {
       UserModel user = await AuthService().login(

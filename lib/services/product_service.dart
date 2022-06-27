@@ -4,7 +4,8 @@ import 'package:shamo/models/product_model.dart';
 
 class ProductService {
   // String baseUrl = 'https://shamo-backend.buildwithangga.id/api';
-  String baseUrl = 'https://shamo-backend.test/api';
+  // String baseUrl = 'https://shamo-backend.test/api';
+  String baseUrl = 'http://172.16.61.117/shamo-backend/public/api';
 
   Future<List<ProductModel>> getProducts() async {
     var url = Uri.parse('$baseUrl/products');

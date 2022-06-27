@@ -1,12 +1,12 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-// import 'package:shamo/providers/auth_provider.dart';
+import 'package:shamo/providers/auth_provider.dart';
 import 'package:shamo/providers/cart_provider.dart';
-// import 'package:shamo/providers/transaction_provider.dart';
+import 'package:shamo/providers/transaction_provider.dart';
 import 'package:shamo/theme.dart';
 import 'package:shamo/widgets/checkout_card.dart';
-// import 'package:shamo/widgets/checkout_card.dart';
-// import 'package:shamo/widgets/loading_button.dart';
+import 'package:shamo/widgets/loading_button.dart';
 
 class CheckoutPage extends StatefulWidget {
   @override
@@ -19,24 +19,24 @@ class _CheckoutPageState extends State<CheckoutPage> {
   @override
   Widget build(BuildContext context) {
     CartProvider cartProvider = Provider.of<CartProvider>(context);
-    // TransactionProvider transactionProvider =
-    //     Provider.of<TransactionProvider>(context);
-    // AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    TransactionProvider transactionProvider =
+        Provider.of<TransactionProvider>(context);
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
     handleCheckout() async {
       setState(() {
         isLoading = true;
       });
 
-      // if (await transactionProvider.checkout(
-      //   authProvider.user.token,
-      //   cartProvider.carts,
-      //   cartProvider.totalPrice(),
-      // )) {
-      //   cartProvider.carts = [];
-      //   Navigator.pushNamedAndRemoveUntil(
-      //       context, '/checkout-success', (route) => false);
-      // }
+      if (await transactionProvider.checkout(
+        authProvider.user.token,
+        cartProvider.carts,
+        cartProvider.totalPrice(),
+      )) {
+        cartProvider.carts = [];
+        Navigator.pushNamedAndRemoveUntil(
+            context, '/checkout-success', (route) => false);
+      }
 
       setState(() {
         isLoading = false;
@@ -283,7 +283,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   margin: EdgeInsets.only(
                     bottom: 30,
                   ),
-                  // child: LoadingButton(),
+                  child: LoadingButton(),
                 )
               : Container(
                   height: 50,
@@ -292,11 +292,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     vertical: defaultMargin,
                   ),
                   child: TextButton(
-                    // onPressed: handleCheckout,
-                    onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, '/checkout-success', (route) => false);
-                    },
+                    onPressed: handleCheckout,
                     style: TextButton.styleFrom(
                       backgroundColor: primaryColor,
                       shape: RoundedRectangleBorder(
