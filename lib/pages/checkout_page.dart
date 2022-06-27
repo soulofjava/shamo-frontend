@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
 // import 'package:shamo/providers/auth_provider.dart';
-// import 'package:shamo/providers/cart_provider.dart';
+import 'package:shamo/providers/cart_provider.dart';
 // import 'package:shamo/providers/transaction_provider.dart';
 import 'package:shamo/theme.dart';
 import 'package:shamo/widgets/checkout_card.dart';
@@ -18,7 +18,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
 
   @override
   Widget build(BuildContext context) {
-    // CartProvider cartProvider = Provider.of<CartProvider>(context);
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
     // TransactionProvider transactionProvider =
     //     Provider.of<TransactionProvider>(context);
     // AuthProvider authProvider = Provider.of<AuthProvider>(context);
@@ -64,14 +64,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     fontWeight: medium,
                   ),
                 ),
-                CheckoutCard(),
-                // Column(
-                // children: cartProvider.carts
-                //     .map(
-                //       (cart) => CheckoutCard(cart),
-                //     )
-                //     .toList(),
-                // ),
+                Column(
+                  children: cartProvider.carts
+                      .map(
+                        (cart) => CheckoutCard(cart),
+                      )
+                      .toList(),
+                ),
               ],
             ),
           ),
@@ -193,7 +192,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       ),
                     ),
                     Text(
-                      '${'cartProvider.totalItems()'} Items',
+                      '${cartProvider.totalItems()} Items',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
@@ -213,7 +212,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       ),
                     ),
                     Text(
-                      '\$${'cartProvider.totalPrice()'}',
+                      '\$${cartProvider.totalPrice()}',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
@@ -260,7 +259,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                       ),
                     ),
                     Text(
-                      '\$${'cartProvider.totalPrice()'}',
+                      '\$${cartProvider.totalPrice()}',
                       style: priceTextStyle.copyWith(
                         fontWeight: semiBold,
                       ),
